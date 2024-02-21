@@ -1,0 +1,10 @@
+MAIN https://ahelpme.com/software/hashicorpvault/starting-hashicorp-vault-in-
+https://habr.com/ru/articles/310460/
+https://www.dmosk.ru/instruktions.php?object=vault-hashicorp#docker
+PYTHON https://hvac.readthedocs.io/en/stable/overview.html#kv-secrets-engine-version-1
+server-mode-under-docker-container/
+https://developer.hashicorp.com/vault/docs/v1.13.x/get-started/developer-qs
+https://gist.github.com/Mishco/b47b341f852c5934cf736870f0b5da81
+https://blog.egorvakh.com/ru/posts/gitlab-ci-create-docker-images
+https://habr.com/ru/articles/344324/
+https://hub.docker.com/r/hashicorp/vault/tags

@@ -1,0 +1,25 @@
+Unseal Key 1: VnqdQ8HlUhkxAo9rYSaDEwK4bSc4p9Hq1bYEgZFMiSWk
+Unseal Key 2: 3bXTIqrlBnZ1KEgBFeR32bP/9DqZztBHKQqHWwoWkifm
+Unseal Key 3: 73T24hPhU5onszzEn5ooHZOqWlRLgrL4PrVlzcR7eZ2j
+Unseal Key 4: eZmgb9sJKOJjrEpRK05hP3ZDBEXJ6TVMf2i5jWKQqFHa
+Unseal Key 5: 4iMSxdtgRzJ5dyc2hZkA7M4X43cjTe9EPNji5qlTM+zg
+
+Initial Root Token: hvs.lcFzRqXKN3QDEzLj6U054eRU
+
+Vault initialized with 5 key shares and a key threshold of 3. Please securely
+distribute the key shares printed above. When the Vault is re-sealed,
+restarted, or stopped, you must supply at least 3 of these keys to unseal it
+before it can start servicing requests.
+
+Vault does not store the generated root key. Without at least 3 keys to
+reconstruct the root key, Vault will remain permanently sealed!
+
+It is possible to generate new unseal keys, provided you have a quorum of
+existing unseal keys shares. See "vault operator rekey" for more information.
+
+http://127.0.0.1:8200/ui/vault/secrets/secret/show/pass
+
+https://ahelpme.com/software/hashicorpvault/starting-hashicorp-vault-in-server-mode-under-docker-container/
+
+
+docker run --cap-add=IPC_LOCK -p 127.0.0.1:8200:8200 -v /srv/vault/config:/vault/config -v /srv/vault/data:/vault/data -v /srv/vault/logs:/vault/logs --name=srv-vault vault server

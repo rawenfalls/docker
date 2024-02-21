@@ -1,0 +1,11 @@
+Запуск
+docker run --cap-add=IPC_LOCK -p 127.0.0.1:8200:8200 -v /srv/vault/config:/vault/config -v /srv/vault/data:/vault/data -v /srv/vault/logs:/vault/logs --name srv-vault --rm my-vault-image
+
+Сборка
+docker build -t my-vault-image .
+
+вход
+docker exec -it srv-vault /bin/sh
+
+выполнить скрипт не заходя в контейнер
+docker exec srv-vault /usr/local/bin/start.sh

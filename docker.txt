@@ -1,0 +1,58 @@
+docker ps -a dsdtltn выведет все контейнеры
+
+
+docker rm $(docker ps -a -q -f status=exited) Эта команда удаляет все контейнеры, у которых статус exited.
+Флаг -q возвращает только численные ID, а флаг -f фильтрует вывод на основе предоставленных условий. Последняя полезная деталь — команде docker run можно передать флаг --rm,
+тогда контейнер будет автоматически удаляться при завершении. Это очень полезно для разовых запусков и экспериментов с Докером.
+
+Флаг -d открепит (detach) терминал, флаг -P сделает все открытые порты публичными и случайными, и, наконец, флаг --name это имя, которое мы хотим дать контейнеру. 
+Теперь можно увидеть порты с помощью команды docker port [CONTAINER].
+
+
+
+
+
+docker run -p 8200:8200 -e 'VAULT_DEV_ROOT_TOKEN_ID=dev-only-token' vault
+
+docker run -p 8200:8200 --name vault -e 'VAULT_DEV_ROOT_TOKEN_ID=dev-only-token' vault:1.13.3
+       наша машина:контейнер
+
+
+docker run --cap-add=IPC_LOCK -v /srv/vault/config:/vault/config -v /srv/vault/data:/vault/data -v /srv/vault/logs:/vault/logs --name=srv-vault vault:1.13.3 server
+
+
+
+Unseal Key 1: GAXYHXjeadGnbOdfNdxHT33wqMLYU0NbmAciQmkn9oJ9
+Unseal Key 2: 5eBRU6QJy+mYA7wc6J+kDIAvA98I0k83LmQOMrvYWxwG
+Unseal Key 3: BOJ6d3XE8hkBhaUGz6GaARUqd55+C9u11EpbkEAQFB4o
+Unseal Key 4: EaZ+ob5pP0R3IwADVKU3k7qT9PzKRjL5pL2MWpVGzseA
+Unseal Key 5: M+8lDYHMtahQOy5+D9G/rYX+iJsdVpCHyggQRBkWNKgg
+
+Initial Root Token: hvs.3DUaxvpntjIeCOEkYas2gjsL
+
+Vault initialized with 5 key shares and a key threshold of 3. Please securely
+distribute the key shares printed above. When the Vault is re-sealed,
+restarted, or stopped, you must supply at least 3 of these keys to unseal it
+before it can start servicing requests.
+
+Vault does not store the generated root key. Without at least 3 keys to
+reconstruct the root key, Vault will remain permanently sealed!
+
+It is possible to generate new unseal keys, provided you have a quorum of
+existing unseal keys shares. See "vault operator rekey" for more information.
+
+docker run --cap-add=IPC_LOCK --name vault -d -p 8200:8200 -e 'VAULT_LOCAL_CONFIG={"backend": {"file": {"path": "/vault/file"}}, "default_lease_ttl": "168h", "max_lease_ttl": "720h", "listener": {"tcp": {"address": "127.0.0.1:8200", "tls_disable": "true"}}}' vault server
+
+
+docker run --cap-add=IPC_LOCK --name vault111 -d -p 8202:8200 vault server
+
+docker run --cap-add=IPC_LOCK -p 8200:8200 -e 'VAULT_LOCAL_CONFIG={"backend": {"file": {"path": "/vault/file"}}, "default_lease_ttl": "168h", "max_lease_ttl": "720h", "listener": {"tcp": {"address": "127.0.0.1:8200", "tls_disable": "true"}}}' vault server
+
+
+
+root@srv ~ # docker run --cap-add=IPC_LOCK -v ./srv/vault/config:/vault/config -v ./srv/vault/data:/vault/data -v ./srv/vault/logs:/vault/logs --name=srv-vault vault server
+
+
+
+
+
