@@ -1,6 +1,8 @@
 Запуск
 docker run --cap-add=IPC_LOCK -p 127.0.0.1:8200:8200 -v /srv/vault/config:/vault/config -v /srv/vault/data:/vault/data -v /srv/vault/logs:/vault/logs --name srv-vault --rm my-vault-image
 
+docker run --cap-add=IPC_LOCK -p 0.0.0.0:8200:8200 -v /srv/vault/config:/vault/config -v /srv/vault/data:/vault/data -v /srv/vault/logs:/vault/logs --name srv-vault --rm zaqmond/signvault
+
 Сборка
 docker build -t my-vault-image .
 
@@ -9,3 +11,14 @@ docker exec -it srv-vault /bin/sh
 
 выполнить скрипт не заходя в контейнер
 docker exec srv-vault /usr/local/bin/start.sh
+
+https://d-registry.kraftway.ru/v2/bmc/bmc_src/ubuntu/tags/list
+http://d-registry.kraftway.ru/v2/bmc/bmc_src
+
+
+/home/zaqmond/Desktop/TRUSTED
+
+docker run --cap-add=IPC_LOCK -p 0.0.0.0:8200:8200 -v /home/zaqmond/Desktop/TRUSTED/signature/vault/config:/vault/config -v /home/zaqmond/Desktop/TRUSTED/signature/vault/data:/vault/data -v /home/zaqmond/Desktop/TRUSTED/signature/vault/logs:/vault/logs --name srv-vault --rm -d zaqmond/signvault
+
+docker run --cap-add=IPC_LOCK -p 0.0.0.0:8200:8200 -v /home/zaqmond/Desktop/TRUSTED/signature/vault/config:/vault/config -v /home/zaqmond/Desktop/TRUSTED/signature/vault/data:/vault/data -v /home/zaqmond/Desktop/TRUSTED/signature/vault/logs:/vault/logs --name srv-vault --rm -d zaqmond/signvault && sleep 10 && docker exec srv-vault /usr/local/bin/start.sh 
+
