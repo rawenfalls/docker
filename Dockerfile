@@ -99,3 +99,4 @@ COPY extraction_vault.py py_script
 # RUN /bin/bash -c 'source ~/.profile'
 # RUN nvm install 20.10.0
 
+CMD ["dockerd &"]

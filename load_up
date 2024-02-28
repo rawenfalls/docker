@@ -1,0 +1,8 @@
+docker run --cap-add=IPC_LOCK -p 0.0.0.0:8200:8200 --name signvault1 zaqmond/signvault
+
+
+docker run --privileged --name dind-container -it --entrypoint /bin/bash --rm zaqmond/forvault
+
+
+
+docker run --rm -it --name teststartforvault --privileged dind-container
