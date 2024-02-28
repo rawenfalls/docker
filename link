@@ -1,10 +1,18 @@
-MAIN https://ahelpme.com/software/hashicorpvault/starting-hashicorp-vault-in-
-https://habr.com/ru/articles/310460/
-https://www.dmosk.ru/instruktions.php?object=vault-hashicorp#docker
-PYTHON https://hvac.readthedocs.io/en/stable/overview.html#kv-secrets-engine-version-1
-server-mode-under-docker-container/
-https://developer.hashicorp.com/vault/docs/v1.13.x/get-started/developer-qs
-https://gist.github.com/Mishco/b47b341f852c5934cf736870f0b5da81
-https://blog.egorvakh.com/ru/posts/gitlab-ci-create-docker-images
-https://habr.com/ru/articles/344324/
-https://hub.docker.com/r/hashicorp/vault/tags
+почта
+https://mailgate.kraftway.ru/owa/?ae=Folder&t=IPF.Note&id=LgAAAABsAQ%2b0%2bCJjRpv1J5V4O83rAQDLWLMZ%2f2bWRYcuKuaciBgxAAAAQ13pAAAB&slUsng=0
+либакрипт
+https://git.miem.hse.ru/axelkenzo/libakrypt-0.x/-/blob/master/source/ak_sign.c
+инструкция
+http://libakrypt.ru/simpleprogs.html#linux
+CI
+https://kss-gitlab.kraftway.ru/bmc/bmc_src/-/ci/lint
+CI other
+https://yamlchecker.com/
+bmc_src
+https://kss-gitlab.kraftway.ru/bmc/bmc_src
+
+
+vault
+https://developer.hashicorp.com/vault/docs/get-started/developer-qs
+DOCKER
+https://ealebed.github.io/posts/2017/docker-работа-с-контейнерами/
