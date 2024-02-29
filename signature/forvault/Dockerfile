@@ -33,6 +33,22 @@ RUN apt-get update && \
     apt-get update && \
     apt-get install -y docker-ce docker-ce-cli containerd.io
 
+# Обновление пакетного менеджера и установка необходимых пакетов
+# RUN apt-get update \
+#     && apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release
+
+# # Добавление официального ключа Docker GPG
+# RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+# # Настройка репозитория Docker
+# RUN echo \
+#     "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+#     $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# # Установка Docker Engine
+# RUN apt-get update \
+#     && apt-get install -y docker-ce docker-ce-cli containerd.io
+
 RUN apt install -y \
 	nodejs \
 	npm
@@ -101,5 +117,5 @@ COPY images/signvault.tar signvault.tar
 # RUN nvm install 20.10.0
 # CMD ["/bin/bash"]
 # CMD ["/bin/bash","-c", "/bin/bash"]
-CMD ["/bin/bash","-c", "dockerd & sleep 10 && docker load -i signvault.tar && docker run -p 0.0.0.0:8200:8200 --name testvault --rm -d signvault ; docker exec testvault ./start.sh; mkdir key && ./extraction_vault 8200 > key/privatekey ; /bin/bash"]
+CMD ["/bin/bash","-c", "dockerd & sleep 10 && docker load -i signvault.tar && docker run -p 0.0.0.0:8200:8200 --name signvault --rm -d signvault && docker ps -a ; docker exec signvault ./start.sh; /bin/bash"]
 
